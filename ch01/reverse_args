@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby -w
+
+#    File:
+#       reverse_args
+#
+#    Synopsis:
+#
+#
+#    Revision History:
+#        Date             Change Description
+#       ------ -----------------------------------------
+#       110530 Original.
+
+def commify_list(*args)
+  case args.length
+  when 0 then ""
+  when 1 then args[0].to_s
+  when 2 then "#{args[0]} and #{args[1]}"
+  else args[0...args.length-1].map(&:to_s).join(", ") + ", and " + args[args.length-1].to_s
+  end
+end
+    
+puts(commify_list(*ARGV.reverse))
